@@ -1,35 +1,33 @@
-#include <RadioHead.h>
-
-#include <RH_ASK.h>
-
-RH_ASK rf_driver;
-
+//Traffic light controller pins into GPIO21, GPIO22, GPIO23 on esp32
+ 
+#define GREEN_LED  21
+#define YELLOW_LED  22
+#define RED_LED  23
+ 
 void setup() {
-  Serial.begin(9600);
-  if (!rf_driver.init()) {
-    Serial.println("RF Module Init Failed");
-  }
+  pinMode(GREEN_LED,OUTPUT);
+  pinMode(YELLOW_LED,OUTPUT);
+  pinMode(RED_LED,OUTPUT);
 }
-
+ 
 void loop() {
-  // Simulating traffic light signals
-  String trafficLightState = "green";  // Change this to "yellow" or "red" for other tests
-
-  const char* msg;
-  if (trafficLightState == "green") {
-    msg = "green";
-    Serial.println("Sending: GREEN");
-  } else if (trafficLightState == "yellow") {
-    msg = "yellow";
-    Serial.println("Sending: YELLOW");
-  } else if (trafficLightState == "red") {
-    msg = "red";
-    Serial.println("Sending: RED");
-  }
-
-  rf_driver.send((uint8_t *)msg, strlen(msg));
-  rf_driver.waitPacketSent();
-
-  // Wait for a while before sending the next signal
-  delay(1000);
+  //Green light
+  digitalWrite(GREEN_LED,HIGH);
+  digitalWrite(YELLOW_LED,LOW);
+  delay(5000); //5 second delay before switching
+ 
+  //Yellow light
+  digitalWrite(GREEN_LED,LOW);
+  digitalWrite(YELLOW_LED,HIGH);
+  delay(2500); //2.5 second delay before switching
+ 
+  //Red light
+  digitalWrite(YELLOW_LED,LOW);
+  digitalWrite(RED_LED,HIGH);
+  delay(5000); //5 second delay delay before switching
+ 
+  //Yellow light
+  digitalWrite(RED_LED,LOW);
+  digitalWrite(YELLOW_LED,HIGH);
+  delay(5000); // 5 second delay before switching
 }
