@@ -5,8 +5,8 @@
 #define YELLOW_LED  22
 #define RED_LED  23
 
-// Receiver MAC Address (replace this with your receiver's MAC address)
-uint8_t receiverAddress[] = {0x24, 0x6F, 0x28, 0xXX, 0xXX, 0xXX}; 
+// Receiver MAC Address 
+uint8_t receiverAddress[] = {0xEC, 0x62, 0x60, 0x9C, 0xCA, 0x5C}; 
 
 void setup() {
   // Set GPIOs as outputs
@@ -15,7 +15,7 @@ void setup() {
   pinMode(RED_LED, OUTPUT);
 
   // Initialize Serial Monitor
-  Serial.begin(115200);
+  Serial.begin(9600);
 
   // Initialize WiFi in STA mode
   WiFi.mode(WIFI_STA);
