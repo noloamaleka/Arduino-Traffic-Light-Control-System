@@ -1,4 +1,4 @@
-# Arduino-Traffic-Light-Control-and-Collision-Avoidance-Project
+# Arduino-Smart-Traffic-Light-Control-and-Collision-Avoidance-Project
 
 ## Project Overview
 This project simulates a traffic light control system with collision avoidance for an Arduino-controlled car. The car listens for signals and responds to traffic light signals sent via an ESP32 module and responds accordingly. The car acts as a receiver while the Traffic Light controller acts as a transmitter. This facilitates client to server communication bewteen the two ESP32 Boards.
