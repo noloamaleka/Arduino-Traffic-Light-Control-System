@@ -2,7 +2,7 @@
 #include <esp_now.h>
 
 // Callback function to handle incoming ESP-NOW data
-void OnDataRecv(const uint8_t *mac, const uint8_t *incomingData, int len) {
+void OnDataRecv(const esp_now_recv_info_t *info, const uint8_t *incomingData, int len) {
   String receivedSignal = String((char*)incomingData);
   Serial.print("Received: ");
   Serial.println(receivedSignal);
@@ -18,7 +18,7 @@ void OnDataRecv(const uint8_t *mac, const uint8_t *incomingData, int len) {
 }
 
 void setup() { 
-  Serial.begin(115200);
+  Serial.begin(9600);
 
   // Initialize WiFi in STA mode
   WiFi.mode(WIFI_STA);
@@ -38,3 +38,4 @@ void setup() {
 void loop() {
   // Placeholder loop function, no additional processing required for receiving ESP-NOW data
 }
+
