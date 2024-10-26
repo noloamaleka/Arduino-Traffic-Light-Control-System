@@ -1,21 +1,21 @@
-# Arduino-Smart-Traffic-Light-Control-and-Collision-Avoidance-Project
+# Arduino-Smart-Traffic-Light-System
 
 ## Project Overview
-This project simulates a traffic light control system with collision avoidance for an Arduino-controlled car. The car listens for signals and responds to traffic light signals sent via an ESP32 module and responds accordingly. The car acts as a receiver while the Traffic Light controller acts as a transmitter. This facilitates client to server communication bewteen the two ESP32 Boards.
+This project simulates a traffic light control system for an Arduino-controlled car. The car listens for signals and responds to traffic light signals sent via an ESP32 module which then sends the signals to the Ardunio car and responds accordingly. The system facilitates client to server communication bewteen the two ESP32 Boards and an Arduino programmed car.
 
-The simulated system can be viewed on: https://simulated-system.vercel.app/
+The simulated system with more features such as obstacle avoidance can be viewed on: https://simulated-system.vercel.app/
 
 ## Directory Structure
 - `src/`: Contains the main Arduino `.ino` files.
-  - `Traffic_Controller.ino`: Code for the traffic light control.
-  - `Car_Traffic.ino`: Code for the car's movement and obstacle avoidance.
+  - `Trasmitter.ino`: Code for the traffic light control.
+  - `Receiver.ino`: Code for the car's movement based on reciveed signals
 
 ## Setup Instructions
 1. Clone this repository or download the ZIP file.
 2. Open the `.ino` files in the Arduino IDE.
 3. Upload the code to the respective Arduino boards.
-   - The `Traffic_Controller.ino` should be uploaded to the traffic light controller ESP32 board.
-   - The `Car_Traffic.ino` should be uploaded to the car ESP32 board.
+   - The `Transmitter.ino` should be uploaded to the traffic light controller ESP32 board.
+   - The `Receiver.ino` should be uploaded to the reciever ESP32 board.
 
 ## Dependencies
 - The project requires the `ESP32` library by Espressif. You can install it via the Arduino IDE Library and Boards Manager.
@@ -26,6 +26,6 @@ The simulated system can be viewed on: https://simulated-system.vercel.app/
 - Commit your changes with clear messages.
 
 ## Further Development
-- The Collision avoidance logic can be expanded or modified.
+- The System can be expanded to include obstacle avoidance logic which can be expanded upon or modified.
 - The traffic light states and corresponding car actions can be adjusted for different scenarios.
 
