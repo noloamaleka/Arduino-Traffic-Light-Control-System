@@ -1,4 +1,3 @@
-
 #include <WiFi.h>
 #include <WebServer.h>
 
@@ -120,7 +119,7 @@ void handleRoot() {
   </head>
   <body>
     <div class="container">
-      <h1>V2I: Traffic Management Navigation System</h1>
+      <h1>V2I: Traffic Management Control System</h1>
 
       <!-- Green Button Section -->
       <div class="heading">State: Green</div>
@@ -179,10 +178,18 @@ void handleSpeed() {
   if (server.hasArg("value")) {
     valueString = server.arg("value");
     int value = valueString.toInt();
-    Serial.println("speed:" + String(value));
+    if (value == 0) {
+      // Send stop signal to Arduino
+      Serial.println("stop");  // Send stop command to Arduino
+    } else {
+      // Send speed command to Arduino in the format "speed:<value>"
+      Serial.println("speed:" + String(value));
+    }
+    Serial.println("Motor speed set to " + String(value));
   }
   server.send(200);
 }
+
 
 void setup() {
   Serial.begin(115200);
